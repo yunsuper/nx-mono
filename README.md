@@ -1,96 +1,97 @@
-# NxMono
+# 🚀 nx-mono: Nx Monorepo Project
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+✨ **Nx 워크스페이스 기반의 팀 프로젝트입니다.** ✨
+공통 UI와 로직은 `libs`에서 관리하고, 서비스는 `apps`에서 조립하는 효율적인 모노레포 구조를 사용합니다.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+---
 
-## Run tasks
+## 🏃‍♂️ 팀원분들을 위한 빠른 시작 가이드 (Quick Start)
 
-To run tasks with Nx use:
+### 1. 레포지토리 클론
 
-```sh
-npx nx <target> <project-name>
+```
+git clone [https://github.com/yunsuper/nx-mono.git](https://github.com/yunsuper/nx-mono.git)
+cd nx-mono
 ```
 
-For example:
+### 2. 패키지 설치
 
-```sh
-npx nx build myproject
+모든 라이브러리와 의존성을 한 번에 설치합니다.
+
+```
+npm install
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+### 3. 로컬 개발 서버 실행
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+메인 앱인 nx-mono를 실행합니다. (성공 시 http://localhost:3000 접속 가능)
 
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-To install a new plugin you can use the `nx add` command. Here's an example of adding the React plugin:
-```sh
-npx nx add @nx/react
+```
+npm run dev
 ```
 
-Use the plugin's generator to create new projects. For example, to create a new React app or library:
+### 4. 프로젝트 구조 확인 (의존성 그래프)
 
-```sh
-# Generate an app
-npx nx g @nx/react:app demo
+앱과 라이브러리가 어떻게 연결되어 있는지 시각적으로 확인합니다.
 
-# Generate a library
-npx nx g @nx/react:lib some-lib
+```
+npm run graph
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+---
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## 🛠 주요 명령어 (Nx Commands)
 
-## Set up CI!
+1. 신규 라이브러리 생성 새로운 기능을 만들 때는 **libs 폴더 안에 라이브러리를 생성**하여 작업합니다.
 
-### Step 1
-
-To connect to Nx Cloud, run the following command:
-
-```sh
-npx nx connect
+```
+npx nx g @nx/react:lib [라이브러리이름] --directory=libs/[라이브러리이름] --style=tailwind --importPath=@nx-mono/[라이브러리이름]
 ```
 
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+2. 캐시 리셋 (에러 발생 시) 빌드가 꼬이거나 유령 에러가 발생할 때 사용하세요.
 
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-### Step 2
-
-Use the following command to configure a CI workflow for your workspace:
-
-```sh
-npx nx g ci-workflow
+```
+npm run reset
 ```
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+3. 빌드 및 테스트
 
-## Install Nx Console
+```
+npm run build  # 전체 빌드
+npm run test   # 전체 테스트
+```
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+---
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## 💡 개발 가이드 (중요!)
 
-## Useful links
+### 1. VS Code 확장 프로그램:
 
-Learn more:
+Nx Console 설치를 강력 권장합니다. 클릭 몇 번으로 라이브러리 생성 및 실행이 가능합니다.
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### 2. 공유 컴포넌트 활용:
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+`libs/shared-ui` 폴더 내의 컴포넌트를 수정하거나 활용하세요. 메인 앱에서는 `import { SharedUi } from '@nx-mono/shared-ui';`로 간편하게 불러올 수 있습니다.
+
+### 3. 스타일 적용 (Tailwind CSS):
+
+Next.js 16 Turbopack 사용 시 새로운 라이브러리를 추가하면 스타일이 자동으로 적용되지 않을 수 있습니다. 이 경우 `apps/nx-mono/tailwind.config.js의 content` 배열에 해당 라이브러리 경로를 수동으로 추가해 주세요.
+
+```
+// 예시:
+'../../libs/[신규라이브러리]/src/**/*.{ts,tsx,js,jsx,html}'
+```
+
+### 4. 코드 구현:
+
+서비스의 유지보수를 위해 실제 기능 및 UI 구현은 가급적 libs 폴더 내에서 진행해 주시길 바랍니다.
+
+---
+
+## 📬 협업 규칙
+
+- 브랜치 생성 시 `feat:기능이름` 또는 `fix:버그수정` 형식을 사용해 주세요.
+
+- 모든 Pull Request는 빌드 및 린트 테스트를 통과해야 합니다.

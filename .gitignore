@@ -40,3 +40,24 @@ Thumbs.db
 
 .nx/cache
 .nx/workspace-data
+
+# Next.js
+.next
+out
+
+# Local Env Files (보안을 위해 환경변수 파일은 절대 올리면 안 됩니다)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Nx Cloud (나중에 사용할 수 있으므로 미리 추가)
+.nx/cloud
+
+# Playwright/Jest (테스트 결과물)
+/test-results
+/playwright-report
+/blob-report
+/test-results/
+/playwright/.cache
