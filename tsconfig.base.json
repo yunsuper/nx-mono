@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-mono/shared-ui": ["libs/shared-ui/src/index.ts"]
+      "@nx-mono/shared-ui": ["libs/shared-ui/src/index.ts"],
+      "@nx-mono/supabase-shared": ["libs/supabase-shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
